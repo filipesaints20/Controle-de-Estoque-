@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo de Preços PRO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🛠️ Catálogo de Preços PRO</h1>
+
+    <div class="tab-menu">
+      <button class="tab-button active" onclick="openTab(event,'catalogo')">📝 Catálogo Principal</button>
+      <button class="tab-button" onclick="openTab(event,'dados')">📥 Importar/Exportar CSV</button>
+    </div>
+
+    <div id="catalogo" class="tab-content active">
+      <h2>Adicionar Novo Item</h2>
+      <form id="form-insercao">
+        <div class="form-group">
+          <label for="categoria">Categoria</label>
+          <select id="categoria" required>
+            <option value="MATERIAL">MATERIAL</option>
+            <option value="SERVIÇO">SERVIÇO</option>
+            <option value="OUTRO">OUTRO</option>
+          </select>
+        </div>
+        <div class="form-group" id="nomeItem">
+          <label for="nomeItemInput">Nome/Título do Item</label>
+          <input type="text" id="nomeItemInput" list="itens-existentes" required placeholder="Ex: Mão de Obra Pedreiro (Hora)" />
+          <datalist id="itens-existentes"></datalist>
+        </div>
+        <div class="form-group" id="valorItem">
+          <label for="valorItemInput">Valor Unitário (R$)</label>
+          <input type="number" id="valorItemInput" step="0.01" required placeholder="0.00" />
+        </div>
+        <div class="form-group" id="descricaoItem">
+          <label for="descricaoItemInput">Descrição Detalhada</label>
+          <textarea id="descricaoItemInput" rows="2" placeholder="Ex: Serviço de alvenaria..."></textarea>
+        </div>
+        <button type="submit" id="btnAdicionar">Adicionar à Lista</button>
+      </form>
+
+      <hr style="margin:30px 0;" />
+
+      <h2>Lista de Itens e Preços</h2>
+      <p>💡 Dica: dê duplo clique no valor do preço para editar rapidamente.</p>
+
+      <table id="catalogoTabela">
+        <thead>
+          <tr>
+            <th>Categoria</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço (R$)</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="dados" class="tab-content">
+      <div class="csv-area">
+        <h3>Exportar Dados para CSV</h3>
+        <p>Gere um arquivo CSV com todos os dados atuais da tabela. Separador: ponto-e-vírgula (;).</p>
+        <button id="btnExtrair" onclick="exportarCSV()">⬇️ Baixar Planilha CSV</button>
+        <hr />
+        <h3>Importar Dados de Planilha CSV</h3>
+        <p>Formato: Categoria;Nome;Descricao;Preco Unitario (R$)</p>
+        <input type="file" id="csvFile" accept=".csv" />
+        <button id="btnImportar" onclick="importarCSV()">⬆️ Carregar Planilha CSV</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de atualização -->
+  <div id="updateModal" class="modal">
+    <div class="modal-content">
+      <h2>Item Já Existente!</h2>
+      <p>O item <strong><span id="modalNome"></span></strong> já está no catálogo.</p>
+      <p>Preço Atual: R$ <strong id="modalPrecoAtual"></strong></p>
+      <p>Novo Preço: R$ <strong id="modalNovoPreco"></strong></p>
+      <p>Deseja atualizar preço e descrição?</p>
+      <button style="background:#28a745;color:#fff;" onclick="confirmarAtualizacao(true)">Sim, Atualizar</button>
+      <button style="background:#dc3545;color:#fff;" onclick="confirmarAtualizacao(false)">Não, Cancelar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

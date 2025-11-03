@@ -1,0 +1,147 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 30px;
+  background: #eef2f7;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,.1);
+}
+
+h1 {
+  color: #007bff;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.tab-menu {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 5px 5px 0 0;
+  margin-right: 5px;
+  transition: .3s;
+  font-weight: 600;
+}
+
+.tab-button.active {
+  background: #007bff;
+  color: #fff;
+  border-top: 3px solid #007bff;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  margin-bottom: -1px;
+}
+
+.tab-content {
+  padding: 20px 0;
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+#form-insercao {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#btnAdicionar {
+  grid-column: 1/5;
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#btnAdicionar:hover { background: #218838; }
+
+#catalogoTabela {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #eee;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background: #f0f0f0;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.editable { cursor: pointer; font-weight: 700; color: #28a745; }
+.remover-btn {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.remover-btn:hover { background: #c82333; }
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.7);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 5% auto;
+  padding: 25px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+}
