@@ -110,7 +110,7 @@ Netlify ou Vercel → faça deploy direto arrastando a pasta.
 
 🧑‍💻 Autor
 
-Desenvolvido por Filipe 💡
+Desenvolvido por Daniel e Filipe 💡
 Sistema de apoio à gestão de preços e orçamentos com integração a planilha online.
 
 📜 Licença
